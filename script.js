@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const questions = document.querySelectorAll('.question');
   const resultPopup = document.getElementById('result-popup');
   const resultContent = document.getElementById('result-content');
-  const closeBtn = document.getElementById('close-btn');
+  const closePopupBtn = document.getElementById('close-popup-btn');
   let currentQuestion = 0;
 
   nextBtn.addEventListener('click', () => {
@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
   prevBtn.addEventListener('click', showPrevQuestion);
 
   form.addEventListener('submit', calculateScore);
+
+  closePopupBtn.addEventListener('click', closeResultPopup);
 
   function showNextQuestion() {
     questions[currentQuestion].classList.remove('active');
@@ -69,11 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       finalResult = 'cinestésico';
     }
-    resultContent.textContent = `Seu canal de aprendizagem é: ${finalResult}`;
+    resultContent.textContent = `Seu canal de aprendizado é: ${finalResult}`;
     resultPopup.style.display = 'block';
   }
-
-  closeBtn.addEventListener('click', closeResultPopup);
 
   function closeResultPopup() {
     resultPopup.style.display = 'none';
@@ -81,4 +81,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
   updateButtons();
 });
-
