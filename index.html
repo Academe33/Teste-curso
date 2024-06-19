@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubra de Canal de Aprendizagem</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
 
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #333;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      color: #666;
+    }
+
+    main {
+      margin-bottom: 20px;
+    }
+
+    .question {
+      display: none; /* Inicia escondida */
+      margin-bottom: 20px;
+    }
+
+    .question.active {
+      display: block; /* Mostra apenas a pergunta ativa */
+    }
+
+    .question p {
+      margin: 0 0 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .question label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+    }
+
+    /* Estilos para o pop-up de resultado */
+    #result-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: purple;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      z-index: 1000;
+      font-size: 24px; /* Tamanho do texto ajustado */
+    }
+
+    #result-popup button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #007BFF;
+      border: 1px solid #007BFF;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #result-popup button:hover {
+      background-color: #007BFF;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Descubra seu Canal de Aprendizagem</h1>
+      <p>Responda as perguntas abaixo para descobrir seu canal de aprendizagem.</p>
+    </header>
+    <main>
+      <form id="quiz-form">
+        <div id="question1" class="question active">
+          <p>Pergunta 1: Quando você está aprendendo algo novo, como prefere que as informações sejam apresentadas?</p>
+          <label>
+            <input type="radio" name="q1" value="1"> Em forma de texto para ler e absorver no seu próprio ritmo.
+          </label><br>
+          <label>
+            <input type="radio" name="q1" value="2"> Em vídeos ou apresentações visuais que mostram o passo a passo.
+          </label><br>
+          <label>
+            <input type="radio" name="q1" value="3"> Através de discussões e interações com outras pessoas.
+          </label><br><br>
+        </div>
+
+        <div id="question2" class="question">
+          <p>Pergunta 2: Ao tentar entender um novo conceito, o que ajuda mais?</p>
+          <label>
+            <input type="radio" name="q2" value="1"> Escrever notas e fazer esquemas para visualizar as conexões.
+          </label><br>
+          <label>
+            <input type="radio" name="q2" value="2"> Ouvir alguém explicar o conceito em detalhes.
+          </label><br>
+          <label>
+            <input type="radio" name="q2" value="3"> Aplicar o conceito em situações práticas.
+          </label><br><br>
+        </div>
+
+        <div id="question3" class="question">
+          <p>Pergunta 3: Como você prefere estudar para um teste importante?</p>
+          <label>
+            <input type="radio" name="q3" value="1"> Lendo o material do curso e fazendo resumos.
+          </label><br>
+          <label>
+            <input type="radio" name="q3" value="2"> Assistindo aulas gravadas ou tutoriais em vídeo.
+          </label><br>
+          <label>
+            <input type="radio" name="q3" value="3"> Participando de grupos de estudo ou revisando com amigos.
+          </label><br><br>
+        </div>
+
+        <div id="question4" class="question">
+          <p>Pergunta 4: Quando você precisa aprender uma nova habilidade prática, como prefere começar?</p>
+          <label>
+            <input type="radio" name="q4" value="1"> Seguindo um guia passo a passo escrito.
+          </label><br>
+          <label>
+            <input type="radio" name="q4" value="2"> Assistindo a vídeos que demonstram a habilidade em ação.
+          </label><br>
+          <label>
+            <input type="radio" name="q4" value="3"> Praticando com alguém que já domina essa habilidade.
+          </label><br><br>
+        </div>
+
+        <div id="question5" class="question">
+          <p>Pergunta 5: Durante uma palestra ou aula, o que mais chama sua atenção?</p>
+          <label>
+            <input type="radio" name="q5" value="1"> A organização e clareza da informação apresentada.
+          </label><br>
+          <label>
+            <input type="radio" name="q5" value="2"> Os recursos visuais (gráficos, diagramas, slides).
+          </label><br>
+          <label>
+            <input type="radio" name="q5" value="3"> As discussões e debates que surgem durante a apresentação.
+          </label><br><br>
+        </div>
+
+        <div id="question6" class="question">
+          <p>Pergunta 6: Quando você tem que ensinar algo a alguém, como prefere fazê-lo?</p>
+          <label>
+            <input type="radio" name="q6" value="1"> Preparando uma apresentação com pontos-chave e exemplos.
+          </label><br>
+          <label>
+            <input type="radio" name="q6" value="2"> Mostrando passo a passo através de demonstrações.
+          </label><br>
+          <label>
+            <input type="radio" name="q6" value="3"> Discutindo o tema e respondendo perguntas ao longo do processo.
+          </label><br><br>
+        </div>
+
+        <div id="question7" class="question">
+          <p>Pergunta 7: Em um ambiente de aprendizagem, como uma sala de aula ou workshop, o que mais te motiva?</p>
+          <label>
+            <input type="radio" name="q7" value="1"> Ter materiais claros e bem estruturados para estudar.
+          </label><br>
+          <label>
+            <input type="radio" name="q7" value="2"> Ver exemplos práticos e aplicações reais do que está sendo ensinado.
+          </label><br>
+          <label>
+            <input type="radio" name="q7" value="3"> Participar de discussões e atividades em grupo.
+          </label><br><br>
+        </div>
+
+        <div id="question8" class="question">
+          <p>Pergunta 8: Quando você precisa aprender um novo idioma, como prefere praticar?</p>
+          <label>
+            <input type="radio" name="q8" value="1"> Usando livrosde gramática e fazendo exercícios escritos.
+</label><br>
+<label>
+<input type="radio" name="q8" value="2"> Ouvido falantes nativos através de áudios ou vídeos.
+</label><br>
+<label>
+<input type="radio" name="q8" value="3"> Participando de conversas com outras pessoas que falam o idioma.
+</label><br><br>
+</div>
+<div id="question9" class="question">
+      <p>Pergunta 9: Como você prefere receber feedback sobre seu desempenho em um novo assunto?</p>
+      <label>
+        <input type="radio" name="q9" value="1"> Através de comentários escritos que destacam pontos fortes e áreas a melhorar.
+      </label><br>
+      <label>
+        <input type="radio" name="q9" value="2"> Com exemplos visuais ou demonstrações práticas do que pode ser melhorado.
+      </label><br>
+      <label>
+        <input type="radio" name="q9" value="3"> Em discussões onde diferentes perspectivas são compartilhadas.
+      </label><br><br>
+    </div>
+
+    <div id="question10" class="question">
+      <p>Pergunta 10: Ao tentar lembrar de informações importantes, o que ajuda mais?</p>
+      <label>
+        <input type="radio" name="q10" value="1"> Revisar suas próprias notas e resumos.
+      </label><br>
+      <label>
+        <input type="radio" name="q10" value="2"> Visualizar diagramas, gráficos ou assistir a vídeos relacionados.
+      </label><br>
+      <label>
+        <input type="radio" name="q10" value="3"> Discutir o assunto com outras pessoas e trocar ideias.
+      </label><br><br>
+    </div>
+
+    <div class="button-container">
+      <button type="button" id="prev-btn">Anterior</button>
+      <button type="button" id="next-btn">Próxima</button>
+      <button type="submit" id="submit-btn" style="display: none;">Enviar</button>
+    </div>
+  </form>
+</main>
+<footer>
+  <p>&copy; 2024 Academe Educação. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Pop-up de resultado -->
+<div id="result-popup">
+  <div id="result-content"></div>
+  <button id="close-popup-btn">Fechar</button>
+</div>
+
+<script>
+  const form = document.getElementById('quiz-form');
+  const nextBtn = document.getElementById('next-btn');
+  const prevBtn = document.getElementById('prev-btn');
+  const submitBtn = document.getElementById('submit-btn');
+  const questions = document.querySelectorAll('.question');
+  const resultPopup = document.getElementById('result-popup');
+  const resultContent = document.getElementById('result-content');
+  const closePopupBtn = document.getElementById('close-popup-btn');
+  let currentQuestion = 0;
+
+  nextBtn.addEventListener('click', () => {
+    if (validateQuestion()) {
+      showNextQuestion();
+    }
+  });
+
+  prevBtn.addEventListener('click', showPrevQuestion);
+
+  form.addEventListener('submit', calculateScore);
+
+  closePopupBtn.addEventListener('click', closeResultPopup);
+
+  function showNextQuestion() {
+    questions[currentQuestion].classList.remove('active');
+    currentQuestion++;
+    questions[currentQuestion].classList.add('active');
+    updateButtons();
+  }
+
+  function showPrevQuestion() {
+    questions[currentQuestion].classList.remove('active');
+    currentQuestion--;
+    questions[currentQuestion].classList.add('active');
+    updateButtons();
+  }
+
+  function updateButtons() {
+    prevBtn.style.display = currentQuestion === 0 ? 'none' : 'inline-block';
+    nextBtn.style.display = currentQuestion === questions.length - 1 ? 'none' : 'inline-block';
+    submitBtn.style.display = currentQuestion === questions.length - 1 ? 'inline-block' : 'none';
+  }
+
+  function validateQuestion() {
+    const inputs = questions[currentQuestion].querySelectorAll('input[type="radio"]');
+    for (let input of inputs) {
+      if (input.checked) {
+        return true;
+      }
+    }
+    alert('Por favor, selecione uma resposta antes de continuar.');
+    return false;
+  }
+
+  function calculateScore(event) {
+    event.preventDefault();
+    let results = { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0, q6: 0, q7: 0, q8: 0, q9: 0, q10: 0 };
+    const formData = new FormData(form);
+    for (let [name, value] of formData.entries()) {
+      results[value]++;
+    }
+    showResult(results);
+  }
+
+  function showResult(results) {
+    let resultTextContent = `
+      Seu resultado:<br>
+      Canal Visual: ${results[1]}<br>
+      Canal Auditivo: ${results[2]}<br>
+      Canal Cinestésico: ${results[3]}<br>
+    `;
+    resultContent.innerHTML = resultTextContent;
+    resultPopup.style.display = 'block';
+  }
+
+  function closeResultPopup() {
+    resultPopup.style.display = 'none';
+  }
+
+  updateButtons();
+  showQuestion(currentQuestion);
+</script>
+ </div>
+</body>
+</html>
+```
