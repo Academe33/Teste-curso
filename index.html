@@ -1,280 +1,163 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descubra seu Canal de Aprendizagem</title>
-  <style>
-    /* Estilos CSS podem ser adicionados aqui conforme necessário */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      font-family: Arial, sans-serif;
-    }
-    .question {
-      display: none;
-    }
-    .question.active {
-      display: block;
-    }
-    .button-container {
-      margin-top: 20px;
-      text-align: right;
-    }
-  </style>
+  <title>Quiz de Estilo de Aprendizagem</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Descubra seu Canal de Aprendizagem</h1>
-      <p>Responda as perguntas abaixo para descobrir seu canal de aprendizagem.</p>
+      <h1>Descubra seu Estilo de Aprendizagem!</h1>
     </header>
+
     <main>
       <form id="quiz-form">
-        <div id="question1" class="question active">
-          <p>Pergunta 1: Quando você está aprendendo algo novo, como prefere que as informações sejam apresentadas?</p>
+        <div class="question active">
+          <h2>Pergunta 1: Como você prefere aprender?</h2>
           <label>
-            <input type="radio" name="q1" value="1"> Em forma de texto para ler e absorver no seu próprio ritmo.
+            <input type="radio" name="q1" value="1"> Assistindo a vídeos ou demonstrações visuais.
           </label><br>
           <label>
-            <input type="radio" name="q1" value="2"> Em vídeos ou apresentações visuais que mostram o passo a passo.
+            <input type="radio" name="q1" value="2"> Participando de discussões em grupo.
           </label><br>
           <label>
-            <input type="radio" name="q1" value="3"> Através de discussões e interações com outras pessoas.
-          </label><br><br>
-        </div>
-        
-        <div id="question2" class="question">
-          <p>Pergunta 2: Qual ambiente você acha que facilita mais o seu aprendizado?</p>
-          <label>
-            <input type="radio" name="q2" value="1"> Ambientes tranquilos onde posso me concentrar sem interrupções.
-          </label><br>
-          <label>
-            <input type="radio" name="q2" value="2"> Ambientes com recursos visuais e estimulação.
-          </label><br>
-          <label>
-            <input type="radio" name="q2" value="3"> Ambientes onde posso discutir ideias com outras pessoas.
-          </label><br><br>
-        </div>
-        
-        <div id="question3" class="question">
-          <p>Pergunta 3: Como você prefere estudar para uma prova importante?</p>
-          <label>
-            <input type="radio" name="q3" value="1"> Lendo o material várias vezes até entender completamente.
-          </label><br>
-          <label>
-            <input type="radio" name="q3" value="2"> Resolvendo exercícios práticos para entender na prática.
-          </label><br>
-          <label>
-            <input type="radio" name="q3" value="3"> Discutindo com colegas ou amigos para trocar informações e dicas.
-          </label><br><br>
-        </div>
-        
-        <div id="question4" class="question">
-          <p>Pergunta 4: Qual é a sua forma preferida de revisar o que aprendeu?</p>
-          <label>
-            <input type="radio" name="q4" value="1"> Lendo notas ou resumos que fiz.
-          </label><br>
-          <label>
-            <input type="radio" name="q4" value="2"> Revendo gráficos, diagramas ou imagens relacionadas ao assunto.
-          </label><br>
-          <label>
-            <input type="radio" name="q4" value="3"> Discutindo o material com outras pessoas ou explicando para alguém.
-          </label><br><br>
-        </div>
-        
-        <div id="question5" class="question">
-          <p>Pergunta 5: Como você costuma resolver problemas complexos?</p>
-          <label>
-            <input type="radio" name="q5" value="1"> Pensando cuidadosamente sobre possíveis soluções antes de tomar uma decisão.
-          </label><br>
-          <label>
-            <input type="radio" name="q5" value="2"> Testando diferentes abordagens até encontrar a que funciona melhor.
-          </label><br>
-          <label>
-            <input type="radio" name="q5" value="3"> Discutindo o problema com outras pessoas para obter diferentes perspectivas.
-          </label><br><br>
-        </div>
-        
-        <div id="question6" class="question">
-          <p>Pergunta 6: O que mais te ajuda a se lembrar de informações importantes?</p>
-          <label>
-            <input type="radio" name="q6" value="1"> Escrever resumos ou tomar notas durante o estudo.
-          </label><br>
-          <label>
-            <input type="radio" name="q6" value="2"> Associar informações com experiências sensoriais ou situações práticas.
-          </label><br>
-          <label>
-            <input type="radio" name="q6" value="3"> Discutir as informações com outras pessoas para fixá-las na memória.
-          </label><br><br>
-        </div>
-        
-        <div id="question7" class="question">
-          <p>Pergunta 7: Quando você está aprendendo algo novo, como se sente mais confortável?</p>
-          <label>
-            <input type="radio" name="q7" value="1"> Fazendo leituras detalhadas e entendendo cada aspecto.
-          </label><br>
-          <label>
-            <input type="radio" name="q7" value="2"> Assistindo vídeos ou demonstrações visuais para ver como as coisas são feitas.
-          </label><br>
-          <label>
-            <input type="radio" name="q7" value="3"> Participando de discussões ou grupos de estudo para compartilhar ideias.
-          </label><br><br>
-        </div>
-        
-        <div id="question8" class="question">
-          <p>Pergunta 8: O que geralmente te motiva a aprender algo novo?</p>
-          <label>
-            <input type="radio" name="q8" value="1"> A necessidade de entender completamente o assunto.
-          </label><br>
-          <label>
-            <input type="radio" name="q8" value="2"> A oportunidade de experimentar algo prático ou visual.
-          </label><br>
-          <label>
-            <input type="radio" name="q8" value="3"> A chance de interagir com outras pessoas e trocar ideias.
-          </label><br><br>
-        </div>
-        
-        <div id="question9" class="question">
-          <p>Pergunta 9: Como você prefere aprender algo novo em um curto período de tempo?</p>
-          <label>
-            <input type="radio" name="q9" value="1"> Lendo material condensado ou resumos rápidos.
-          </label><br>
-          <label>
-            <input type="radio" name="q9" value="2"> Assistindo a vídeos ou tutoriais que explicam rapidamente o assunto.
-          </label><br>
-          <label>
-            <input type="radio" name="q9" value="3"> Participando de discussões intensivas ou sessões práticas.
-          </label><br><br>
-        </div>
-        
-        <div id="question10" class="question">
-          <p>Pergunta 10: Como você prefere revisar antes de uma apresentação ou teste?</p>
-          <label>
-            <input type="radio" name="q10" value="1"> Repassando mentalmente as informações e conceitos principais.
-          </label><br>
-          <label>
-            <input type="radio" name="q10" value="2"> Utilizando esquemas ou mapas mentais para visualizar as informações.
-          </label><br>
-          <label>
-            <input type="radio" name="q10" value="3"> Participando de sessões de grupo para praticar e discutir o conteúdo.
+            <input type="radio" name="q1" value="3"> Praticando a apresentação com colegas para receber feedback imediato.
           </label><br><br>
         </div>
 
-        <div class="button-container">
-          <button type="button" id="next-btn">Próxima Pergunta</button>
+        <div class="question">
+          <h2>Pergunta 2: Como você costuma estudar para um exame importante?</h2>
+          <label>
+            <input type="radio" name="q2" value="1"> Revisando anotações e materiais visuais.
+          </label><br>
+          <label>
+            <input type="radio" name="q2" value="2"> Explicando o material para um amigo ou colega.
+          </label><br>
+          <label>
+            <input type="radio" name="q2" value="3"> Fazendo muitas perguntas e participando de grupos de estudo.
+          </label><br><br>
+        </div>
+
+        <div class="question">
+          <h2>Pergunta 3: Como você se sai melhor em aprender novas habilidades práticas?</h2>
+          <label>
+            <input type="radio" name="q3" value="1"> Assistindo a tutoriais online ou instruções passo a passo.
+          </label><br>
+          <label>
+            <input type="radio" name="q3" value="2"> Ouvindo alguém explicar e depois tentando você mesmo.
+          </label><br>
+          <label>
+            <input type="radio" name="q3" value="3"> Aprendendo diretamente com um instrutor ou mentor.
+          </label><br><br>
+        </div>
+
+        <div class="question">
+          <h2>Pergunta 4: Como você prefere receber feedback sobre seu trabalho?</h2>
+          <label>
+            <input type="radio" name="q4" value="1"> Visualizando gráficos ou exemplos concretos do que precisa melhorar.
+          </label><br>
+          <label>
+            <input type="radio" name="q4" value="2"> Ouvindo alguém explicar suas áreas de melhoria.
+          </label><br>
+          <label>
+            <input type="radio" name="q4" value="3"> Recebendo feedback em tempo real durante uma apresentação ou prática.
+          </label><br><br>
+        </div>
+
+        <div class="question">
+          <h2>Pergunta 5: Como você se prepara melhor para uma apresentação importante?</h2>
+          <label>
+            <input type="radio" name="q5" value="1"> Criando slides ou gráficos detalhados para apoiar sua apresentação.
+          </label><br>
+          <label>
+            <input type="radio" name="q5" value="2"> Praticando a apresentação várias vezes na frente de amigos ou familiares.
+          </label><br>
+          <label>
+            <input type="radio" name="q5" value="3"> Fazendo um brainstorming com colegas para aprimorar suas ideias.
+          </label><br><br>
+        </div>
+
+        <div class="question">
+          <h2>Pergunta 6: Como você prefere aprender a usar um novo software?</h2>
+          <label>
+            <input type="radio" name="q6" value="1"> Assistindo a tutoriais em vídeo que mostram cada etapa.
+          </label><br>
+          <label>
+            <input type="radio" name="q6" value="2"> Seguindo as instruções no manual do usuário.
+          </label><br>
+          <label>
+            <input type="radio" name="q6" value="3"> Experimentando diferentes funções com feedback imediato do sistema.
+          </label><br><br>
+        </div>
+
+        <div class="question">
+          <h2>Pergunta 7: Como você prefere discutir um novo conceito em sala de aula?</h2>
+          <label>
+            <input type="radio" name="q7" value="1"> Criando um esquema visual ou fluxograma para entender melhor.
+          </label><br>
+          <label>
+            <input type="radio" name="q7" value="2"> Participando de debates em grupo para explorar diferentes pontos de vista.
+          </label><br>
+          <label>
+            <input type="radio" name="q7" value="3"> Ouvindo a explicação detalhada do professor e fazendo anotações.
+          </label><br><br>
+        </div>
+
+        <div class="question">
+          <h2>Pergunta 8: Como você se sente mais confortável ao aprender uma nova habilidade física?</h2>
+          <label>
+            <input type="radio" name="q8" value="1"> Assistindo a vídeos de instrutores demonstrando as técnicas.
+          </label><br>
+          <label>
+            <input type="radio" name="q8" value="2"> Recebendo instruções verbais e dicas de um treinador ou colega.
+          </label><br>
+          <label>
+            <input type="radio" name="q8" value="3"> Tentando a técnica repetidamente com feedback constante de um mentor.
+          </label><br><br>
+        </div>
+
+        <div class="question">
+          <h2>Pergunta 9: Como você costuma estudar para um teste de múltipla escolha?</h2>
+          <label>
+            <input type="radio" name="q9" value="1"> Fazendo anotações coloridas e diagramas para visualizar as informações.
+          </label><br>
+          <label>
+            <input type="radio" name="q9" value="2"> Explicando o material para um amigo e revisando juntos.
+          </label><br>
+          <label>
+            <input type="radio" name="q9" value="3"> Praticando testes de prática para se acostumar com o formato das perguntas.
+          </label><br><br>
+        </div>
+
+        <div class="question">
+          <h2>Pergunta 10: Como você se prepara melhor para uma apresentação importante?</h2>
+          <label>
+            <input type="radio" name="q10" value="1"> Criando slides ou gráficos detalhados para apoiar sua apresentação.
+          </label><br>
+          <label>
+            <input type="radio" name="q10" value="2"> Praticando a apresentação várias vezes na frente de amigos ou familiares.
+          </label><br>
+          <label>
+            <input type="radio" name="q10" value="3"> Fazendo um brainstorming com colegas para aprimorar suas ideias.
+          </label><br><br>
+        </div>
+        
+        <div id="result" style="display: none;">
+          <p id="result-text"></p>
+          <button type="" onclick="resetQuiz()"></button>
+        </div>
+
+        <div id="navigation-buttons">
+          <button type="button" onclick="prevQuestion()" id="prev-btn" disabled>Voltar</button>
+          <button type="button" onclick="nextQuestion()" id="next-btn">Próxima</button>
           <button type="submit" id="submit-btn" style="display: none;">Ver Resultado</button>
         </div>
       </form>
-      
-      <div id="result" style="display: none;">
-        <h2>Seu canal de aprendizagem é:</h2>
-        <p id="result-text"></p>
-      </div>
     </main>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const questions = document.querySelectorAll('.question');
-      const nextButton = document.getElementById('next-btn');
-      const submitButton = document.getElementById('submit-btn');
-      const resultDiv = document.getElementById('result');
-      const resultText = document.getElementById('result-text');
-      let currentQuestionIndex = 0;
-
-      function showQuestion(index) {
-        questions.forEach((question, idx) => {
-          if (idx === index) {
-            question.classList.add('active');
-          } else {
-            question.classList.remove('active');
-          }
-        });
-      }
-
-      function calculateResult() {
-        const answers = {
-          q1: getRadioValue('q1'),
-          q2: getRadioValue('q2'),
-          q3: getRadioValue('q3'),
-          q4: getRadioValue('q4'),
-          q5: getRadioValue('q5'),
-          q6: getRadioValue('q6'),
-          q7: getRadioValue('q7'),
-          q8: getRadioValue('q8'),
-          q9: getRadioValue('q9'),
-          q10: getRadioValue('q10')
-        };
-
-    let result = '';
-
-        // Calculando o resultado baseado nas respostas
-        let score1 = parseInt(answers.q1);
-        let score2 = parseInt(answers.q2);
-        let score3 = parseInt(answers.q3);
-        let score4 = parseInt(answers.q4);
-        let score5 = parseInt(answers.q5);
-        let score6 = parseInt(answers.q6);
-        let score7 = parseInt(answers.q7);
-        let score8 = parseInt(answers.q8);
-        let score9 = parseInt(answers.q9);
-        let score10 = parseInt(answers.q10);
-
-        let totalScore = score1 + score2 + score3 + score4 + score5 + score6 + score7 + score8 + score9 + score10;
-
-        if (totalScore >= 10 && totalScore <= 17) {
-          result = "Visual";
-        } else if (totalScore >= 18 && totalScore <= 25) {
-          result = "Auditivo";
-        } else if (totalScore >= 26 && totalScore <= 30) {
-          result = "Cinestésico";
-        } else {
-          result = "Indefinido";
-        }
-
-        return result;
-      }
-
-      function getRadioValue(name) {
-        const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
-        return selectedOption ? selectedOption.value : '0';
-      }
-
-      function showResult() {
-        const result = calculateResult();
-        resultText.textContent = result;
-        resultDiv.style.display = 'block';
-        questions.forEach(question => {
-          question.style.display = 'none';
-        });
-        nextButton.style.display = 'none';
-        submitButton.style.display = 'none';
-      }
-
-      nextButton.addEventListener('click', function() {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-          showQuestion(currentQuestionIndex);
-        }
-        if (currentQuestionIndex === questions.length - 1) {
-          nextButton.style.display = 'none';
-          submitButton.style.display = 'inline-block';
-        }
-      });
-
-      document.getElementById('quiz-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        showResult();
-      });
-
-      showQuestion(currentQuestionIndex);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
